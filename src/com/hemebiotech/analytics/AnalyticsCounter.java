@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 public class AnalyticsCounter {
-	private static final String symptoms = "C:\\Users\\serha\\Desktop\\\\DEVELOPPEUR JAVA\\\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\\\Project02Eclipse\\\\symptoms.txt";
-	private static final String results = "results.out";
+	private static final String SYMPTOMS = "C:\\Users\\serha\\Desktop\\\\DEVELOPPEUR JAVA\\\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\\\Project02Eclipse\\\\symptoms.txt";
+	private static final String RESULTS = "results.out";
 
 	public static void main(String[] args) {
 		try {
@@ -34,7 +34,7 @@ public class AnalyticsCounter {
 	private static Map<String, Integer> readDiseaseFile() throws IOException {
 		Map<String, Integer> diseaseCount = new HashMap<>();
 
-		 BufferedReader reader = new BufferedReader(new FileReader(symptoms));
+		 BufferedReader reader = new BufferedReader(new FileReader(SYMPTOMS));
 			String line;
 			while ((line = reader.readLine()) != null) {
 				diseaseCount.put(line, diseaseCount.getOrDefault(line, 0) + 1);
@@ -44,7 +44,7 @@ public class AnalyticsCounter {
 		return diseaseCount;
 	}
 	private static void writeSortedDiseases(List<String> diseases, Map<String, Integer> diseaseCount) throws IOException {
-		 BufferedWriter  writer = new BufferedWriter(new FileWriter(results));
+		 BufferedWriter  writer = new BufferedWriter(new FileWriter(RESULTS));
 			for (String disease : diseases) {
 				writer.write(disease + " : " + diseaseCount.get(disease));
 				writer.newLine();

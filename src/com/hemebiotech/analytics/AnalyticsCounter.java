@@ -11,47 +11,44 @@ import java.util.List;
 import java.util.Map;
 
 public class AnalyticsCounter {
-	public static void main(String[] args) throws IOException {
-		// Création d'une HashMap pour stocker les noms de maladies en tant que clés et leur nombre d'occurrences en tant que valeurs
-		Map<String, Integer> diseaseCount = readDiseaseFile();
+	private static final String symptoms = "C:\\Users\\serha\\Desktop\\\\DEVELOPPEUR JAVA\\\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\\\Project02Eclipse\\\\symptoms.txt";
+	private static final String results = "results.out";
 
-		// Création d'une liste pour stocker les noms de maladies
-		List<String> diseases = new ArrayList<>(diseaseCount.keySet());
-		// Tri de la liste des noms de maladies dans l'ordre alphabétique
-		Collections.sort(diseases);
+	public static void main(String[] args) {
+		try {
+			// Création d'une HashMap pour stocker les noms de maladies en tant que clés et leur nombre d'occurrences en tant que valeurs
+			Map<String, Integer> diseaseCount = readDiseaseFile();
 
-		// Écrit les résultats dans un fichier
-		writeSortedDiseases(diseases, diseaseCount);
+			// Création d'une liste pour stocker les noms de maladies
+			List<String> diseases = new ArrayList<>(diseaseCount.keySet());
+			// Tri de la liste des noms de maladies dans l'ordre alphabétique
+			Collections.sort(diseases);
 
-		// Affiche les résultats à l'écran
-		displayResults(diseases, diseaseCount);
+			// Écrit les résultats dans un fichier
+			writeSortedDiseases(diseases, diseaseCount);
+
+		} catch (IOException e) {
+			System.err.println("Erreur dans la lecture ou dans l'écriture du fichier : " + e.getMessage());
+		}
 	}
-
 	private static Map<String, Integer> readDiseaseFile() throws IOException {
 		Map<String, Integer> diseaseCount = new HashMap<>();
 
-		try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\serha\\Desktop\\\\DEVELOPPEUR JAVA\\\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\\\Project02Eclipse\\\\symptoms.txt"))) {
+		 BufferedReader reader = new BufferedReader(new FileReader(symptoms));
 			String line;
 			while ((line = reader.readLine()) != null) {
 				diseaseCount.put(line, diseaseCount.getOrDefault(line, 0) + 1);
 			}
-		}
+
 
 		return diseaseCount;
 	}
-
 	private static void writeSortedDiseases(List<String> diseases, Map<String, Integer> diseaseCount) throws IOException {
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter("results.out"))) {
+		 BufferedWriter  writer = new BufferedWriter(new FileWriter(results));
 			for (String disease : diseases) {
 				writer.write(disease + " : " + diseaseCount.get(disease));
 				writer.newLine();
-			}
-		}
-	}
 
-	private static void displayResults(List<String> diseases, Map<String, Integer> diseaseCount) {
-		for (String disease : diseases) {
-			System.out.println(disease + " : " + diseaseCount.get(disease));
 		}
 	}
 }

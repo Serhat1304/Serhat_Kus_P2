@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ * Classe permettant de lire un fichier de maladies
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
@@ -24,7 +24,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     @Override
     public List<String> getSymptoms() {
-        ArrayList<String> result = new ArrayList<>();
+        List<String> result = new ArrayList<>();
 
         if (filepath != null) {
             try {

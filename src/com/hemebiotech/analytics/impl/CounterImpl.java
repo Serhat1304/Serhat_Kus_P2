@@ -19,6 +19,10 @@ public class CounterImpl implements ICounter {
         Map<String, Integer> result = new TreeMap<>();
 
         if(diseases != null) {
+            /* Pour chaque maladie :
+                    - s'il n'existe pas dans result, on ajoute la maladie comme clé, et 1 comme valeur
+                    - sinon on remplace la maladie trouvée dans result et on ajoute + 1 à la valeur
+             */
             diseases.forEach(disease -> result.put(disease, result.getOrDefault(disease, 0) + 1));
         }
 

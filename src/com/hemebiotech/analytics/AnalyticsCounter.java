@@ -1,8 +1,11 @@
 package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.impl.CounterImpl;
-import com.hemebiotech.analytics.impl.ReadSymptomDataFromFile;
-import com.hemebiotech.analytics.impl.WriteSymptomDataToFile;
+import com.hemebiotech.analytics.Counter.CounterImpl;
+import com.hemebiotech.analytics.Counter.ICounter;
+import com.hemebiotech.analytics.Read.ISymptomReader;
+import com.hemebiotech.analytics.Read.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.Write.ISymptomWriter;
+import com.hemebiotech.analytics.Write.WriteSymptomDataToFile;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +16,7 @@ import java.util.Map;
  */
 public class AnalyticsCounter {
 
-    private static final String SYMPTOMS = "C:\\Users\\serha\\Desktop\\\\DEVELOPPEUR JAVA\\\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\\\Project02Eclipse\\\\symptoms.txt";
+    private static final String SYMPTOMS = "symptoms.txt";
     private static final String RESULTS = "results.out";
 
     public static void main(String[] args) {

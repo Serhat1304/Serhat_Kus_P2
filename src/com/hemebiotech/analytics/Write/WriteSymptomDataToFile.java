@@ -1,6 +1,4 @@
-package com.hemebiotech.analytics.impl;
-
-import com.hemebiotech.analytics.ISymptomWriter;
+package com.hemebiotech.analytics.Write;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

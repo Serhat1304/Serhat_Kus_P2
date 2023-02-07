@@ -1,6 +1,4 @@
-package com.hemebiotech.analytics.impl;
-
-import com.hemebiotech.analytics.ISymptomReader;
+package com.hemebiotech.analytics.Read;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

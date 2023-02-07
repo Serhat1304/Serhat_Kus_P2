@@ -1,6 +1,4 @@
-package com.hemebiotech.analytics.impl;
-
-import com.hemebiotech.analytics.ICounter;
+package com.hemebiotech.analytics.Counter;
 
 import java.util.List;
 import java.util.Map;
